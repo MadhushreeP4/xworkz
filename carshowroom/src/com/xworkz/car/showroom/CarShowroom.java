@@ -22,9 +22,10 @@ public class CarShowroom {
 	public CarShowroom() {
 		System.out.println("default constructor");
 	}
-	
+
 	/**
 	 * constructor with
+	 * 
 	 * @param name
 	 * @param location
 	 */
@@ -34,9 +35,10 @@ public class CarShowroom {
 		this.name = name;
 		this.location = location;
 	}
-	
+
 	/**
 	 * normal method to add manager with
+	 * 
 	 * @param name
 	 * @param contactN0
 	 */
@@ -49,9 +51,10 @@ public class CarShowroom {
 			System.out.println("data is invalid");
 		}
 	}
-	
+
 	/**
 	 * adding manager with DTO
+	 * 
 	 * @param name
 	 */
 
@@ -76,9 +79,10 @@ public class CarShowroom {
 	public void removeManager() {
 		this.managerDTO = null;
 	}
-	
+
 	/**
 	 * updating manager with DTO
+	 * 
 	 * @param name
 	 */
 
@@ -90,9 +94,10 @@ public class CarShowroom {
 			System.out.println("Manager is not there so add manager");
 		}
 	}
-	
+
 	/**
 	 * adding cars to car show room
+	 * 
 	 * @param car
 	 */
 
@@ -123,9 +128,10 @@ public class CarShowroom {
 			System.out.println(cdto.getVariant());
 		}
 	}
-	
+
 	/**
 	 * updating car variant with the help of index value
+	 * 
 	 * @param newVariant
 	 * @param indexToUpdate
 	 */
@@ -139,9 +145,10 @@ public class CarShowroom {
 			carDTO.setVariant(newVariant);
 		}
 	}
-	
+
 	/**
 	 * displays model price and variant when we give index value
+	 * 
 	 * @param indexToDisplay
 	 */
 
@@ -155,15 +162,16 @@ public class CarShowroom {
 
 		}
 	}
-	
+
 	/**
 	 * displays price and variant of a car when we give a model name
+	 * 
 	 * @param model
 	 */
 
 	public void displayCarByModel(String model) {
 		if (model != null) {
-			System.out.println("searching for model "+model);
+			System.out.println("searching for model " + model);
 			boolean carFound = false;
 			for (int index = 0; index < this.cars.length; index++) {
 				CarDTO refOfCar = this.cars[index];
@@ -177,7 +185,42 @@ public class CarShowroom {
 				}
 			}
 			if (carFound == false) {
-				System.out.println(model+" car is not found");
+				System.out.println(model + " car is not found");
+			}
+		}
+	}
+	
+	/**
+	 * deleting car by giving index
+	 * @param index
+	 */
+
+	public void deleteByIndex(int index) {
+		if (index > 0 && index < this.cars.length) {
+			this.cars[index] = null;
+			System.out.println("car at index "+index+" is deleted");
+		} else {
+			System.out.println("car is not deleted");
+		}
+	}
+	
+	/**
+	 * deleting car by giving model
+	 * @param modelName
+	 */
+
+	public void deleteByModelName(String modelName) {
+		if (modelName != null) {
+			for (int i = 0; i < this.cars.length; i++) {
+				CarDTO carDTO = this.cars[i];
+				String refName = carDTO.getModel();
+				if (refName.equals(modelName)) {
+					this.cars[i] = null;
+					System.out.println(modelName + " car is deleted");
+					break;
+				} else {
+					System.out.println(modelName + " car is not deleted");
+				}
 			}
 		}
 	}

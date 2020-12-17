@@ -38,7 +38,12 @@ public class CarTester {
 		System.out.println(" ");
 		carShowroom.displayCarByModel("BMW");
 		carShowroom.displayCarByModel("Lamborghini");
-
+		System.out.println(" ");
+		
+		carShowroom.deleteByIndex(3);
+		System.out.println(" ");
+		carShowroom.deleteByModelName("Duster");
+		
 	}
 
 }
